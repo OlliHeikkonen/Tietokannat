@@ -1,5 +1,13 @@
 # Tietokannat
 
+1. Minun nimellä löytyy Olaffeja ja muita ruotsalaisia
+Matti nimellä löytyy paljon Mathiasta
+Maija nimellä löytyy 2 nimisiä nimejä paljon
+
+2. Nii kyllähän sitä tulee tietoja aina laitettuu kaikkialle vaikkei tietäiskää kenelle ja minne ne päätyy
+
+3. 
+
 4. SELECT * 
 FROM Kurssisuoritus
 
@@ -40,3 +48,30 @@ AND Kurssi.kurssitunnus = Kurssitehtävä.kurssi
 AND Tehtävä.tunnus = Kurssitehtävä.tehtävä
 AND Opiskelija.opiskelijanumero = Tehtäväsuoritus.opiskelija
 AND Kurssitehtävä.tunnus = Tehtäväsuoritus.tehtävä
+
+14. 4 ja 5 rivi on suoritettuja kursseja
+
+15. SELECT nimi FROM Kurssi K
+WHERE K.kurssitunnus
+NOT IN (SELECT tunnus FROM Kurssitehtävä)
+
+16. SELECT kurssi AS kurssikoodi, COUNT(*) AS lukumäärä 
+FROM Kurssisuoritus GROUP BY kurssi
+
+17. SELECT nimi AS kurssi, COUNT(kurssi) AS lukumäärä
+FROM Kurssi, Kurssisuoritus
+WHERE Kurssisuoritus.kurssi = Kurssi.kurssitunnus GROUP BY kurssi
+
+18.SELECT nimi AS kurssi, COUNT(kurssi) AS lukumäärä
+FROM Kurssi LEFT JOIN Kurssisuoritus
+ON kurssitunnus = kurssi GROUP BY nimi
+
+19. CREATE TABLE Kurssi (kurssitunnus, nimi, kuvaus)
+
+20. INSERT INTO Kurssi (nimi, kurssitunnus, kuvaus)
+VALUES  ('SQL-kielen perusteet', '12345',  'Hei maailma')
+
+21. CREATE TABLE Kurssi3 (kurssitunnus, nimi, kuvaus) ///
+PRAGMA TABLE_INFO(Kurssi3)
+
+22. 
