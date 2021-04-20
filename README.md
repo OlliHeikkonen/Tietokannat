@@ -119,4 +119,5 @@ VALUES ((SELECT kurssitunnus FROM Kurssi WHERE nimi = 'Ohpe'),(SELECT tunnus FRO
 INSERT INTO Kurssitehtävä (kurssi, tehtävä)
 VALUES ((SELECT kurssitunnus FROM Kurssi WHERE nimi = 'Tikape'),(SELECT tunnus FROM Tehtävä WHERE nimi  = 'teht3'));
 
-27. 
+27. ALTER TABLE -käskyä käytetään lisäämään, poistamaan tai muokkaamaan olemassa olevan taulukon sarakkeita.
+ALTER TABLE -käskyä käytetään myös lisäämään ja pudottamaan erilaisia ​​rajoituksia olemassa olevaan taulukkoon.
