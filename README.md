@@ -74,4 +74,48 @@ VALUES  ('SQL-kielen perusteet', '12345',  'Hei maailma')
 21. CREATE TABLE Kurssi3 (kurssitunnus, nimi, kuvaus) ///
 PRAGMA TABLE_INFO(Kurssi3)
 
-22. 
+22. CREATE TABLE Kurssi
+(
+kurssitunnus integer,
+nimi varchart(200),
+kuvaus varchart(250)
+)
+
+23. Koska tietokantatauluun on määritelty avain, joka on uniikki, ei taulun sarakkeessa opiskelijanumero voi olla kahta samaa arvoa.
+
+24. CREATE TABLE Kurssi
+(
+kurssitunnus integer PRIMARY KEY,
+nimi varchart(200),
+kuvaus varchart(250)
+)
+
+25. CREATE TABLE Tehtävä
+(
+tunnus integer PRIMARY KEY,
+nimi varchart(200) NOT NULL
+);
+CREATE TABLE Kurssitehtävä
+(
+tunnus integer PRIMARY KEY,
+tehtävä integer,
+kurssi integer,
+FOREIGN KEY(tehtävä)REFERENCES Tehtävä(tunnus),
+FOREIGN KEY(kurssi)REFERENCES Kurssi(kurssitunnus)
+)
+
+26. INSERT INTO Tehtävä(nimi) VALUES('teht1');
+INSERT INTO Tehtävä(nimi) VALUES('teht2');
+INSERT INTO Tehtävä(nimi) VALUES('teht3');
+
+
+INSERT INTO Kurssitehtävä (kurssi, tehtävä)
+VALUES ((SELECT kurssitunnus FROM Kurssi WHERE nimi = 'Ohpe'),(SELECT tunnus FROM Tehtävä WHERE nimi  = 'teht1'));
+
+INSERT INTO Kurssitehtävä (kurssi, tehtävä)
+VALUES ((SELECT kurssitunnus FROM Kurssi WHERE nimi = 'Ohpe'),(SELECT tunnus FROM Tehtävä WHERE nimi  = 'teht2'));
+
+INSERT INTO Kurssitehtävä (kurssi, tehtävä)
+VALUES ((SELECT kurssitunnus FROM Kurssi WHERE nimi = 'Tikape'),(SELECT tunnus FROM Tehtävä WHERE nimi  = 'teht3'));
+
+27. 
