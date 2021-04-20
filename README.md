@@ -6,7 +6,8 @@ Maija nimellä löytyy 2 nimisiä nimejä paljon
 
 2. Nii kyllähän sitä tulee tietoja aina laitettuu kaikkialle vaikkei tietäiskää kenelle ja minne ne päätyy
 
-3. ![Kuva1](Taulukko.png)
+3. 
+![Kuva1](Taulukko.png)
 
 4. SELECT * 
 FROM Kurssisuoritus
