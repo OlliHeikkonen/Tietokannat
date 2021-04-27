@@ -54,9 +54,10 @@ AND Kurssitehtävä.tunnus = Tehtäväsuoritus.tehtävä
 
 14. 4 ja 5 rivi on suoritettuja kursseja
 
-15. SELECT nimi FROM Kurssi K
-WHERE K.kurssitunnus
-NOT IN (SELECT tunnus FROM Kurssitehtävä)
+15. SELECT nimi 
+FROM Kurssi 
+WHERE Kurssi.kurssitunnus 
+NOT IN (SELECT kurssi FROM Kurssitehtävä)
 
 16. SELECT kurssi AS kurssikoodi, COUNT(*) AS lukumäärä 
 FROM Kurssisuoritus GROUP BY kurssi
