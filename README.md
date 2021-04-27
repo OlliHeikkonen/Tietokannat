@@ -36,12 +36,13 @@ FROM Kurssisuoritus, Kurssi
 WHERE Kurssi.kurssitunnus=Kurssisuoritus.kurssi
 
 11. SELECT Opiskelija.nimi, Kurssisuoritus.päivämäärä, Kurssisuoritus.arvosana 
-FROM Kurssisuoritus, Kurssi, Opiskelija 
-WHERE Kurssi.kurssitunnus=Kurssisuoritus.kurssi
+FROM Kurssisuoritus, Opiskelija 
+WHERE Opiskelija.opiskelijanumero=Kurssisuoritus.opiskelija
 
-12. SELECT Kurssi.nimi AS kurssi, Kurssitehtävä.tehtävä AS tehtävä 
-FROM Kurssi, Kurssitehtävä 
-WHERE Kurssi.kurssitunnus = Kurssitehtävä.Kurssi
+12. SELECT Kurssi.nimi AS kurssi, Tehtävä.nimi AS tehtävä
+FROM Kurssi, Tehtävä, Kurssitehtävä
+WHERE Tehtävä.tunnus=Kurssitehtävä.tehtävä
+AND Kurssi.kurssitunnus=Kurssitehtävä.kurssi
 
 13. SELECT Kurssi.nimi AS kurssi, Tehtävä.nimi AS tehtävä
 FROM Kurssi, Tehtävä, Kurssitehtävä, Opiskelija, Tehtäväsuoritus
