@@ -22,13 +22,14 @@ FROM Kurssisuoritus
 FROM Opiskelija 
 WHERE nimi = 'Anna'
 
-8. SELECT * 
-FROM Kurssisuoritus 
-WHERE Kurssisuoritus.opiskelija = 'Pihla'
+8. SELECT nimi, kurssi, päivämäärä, arvosana 
+FROM Kurssisuoritus, Opiskelija 
+WHERE Opiskelija.nimi = 'Pihla' 
+AND Kurssisuoritus.opiskelija = Opiskelija.opiskelijanumero
 
 9. SELECT * 
 FROM Opiskelija 
-WHERE pääaine NOT LIKE 'tiede'
+WHERE pääaine NOT LIKE '%tiede%'
 
 10. SELECT Kurssi.nimi, Kurssisuoritus.päivämäärä, Kurssisuoritus.arvosana 
 FROM Kurssisuoritus, Kurssi 
